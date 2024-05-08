@@ -1,12 +1,13 @@
 package com.example.biblioteca.Controller;
 
+import static com.example.biblioteca.database.DatabaseConnection.getConnection;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.biblioteca.database.DatabaseConnection;
 import com.example.biblioteca.model.Livro;
 import com.example.biblioteca.view.BibliotecaView;
 
@@ -18,7 +19,7 @@ public class BibliotecaController {
     public BibliotecaController(BibliotecaView view) {
         this.view = view;
         this.livros = new ArrayList<>();
-        this.connection = DatabaseConnection.getConnection();
+        this.connection = getConnection();
     }
 
     public void cadastrarLivro(String titulo) {
@@ -76,6 +77,3 @@ public class BibliotecaController {
         return null;
     }
 }
-
-
-
